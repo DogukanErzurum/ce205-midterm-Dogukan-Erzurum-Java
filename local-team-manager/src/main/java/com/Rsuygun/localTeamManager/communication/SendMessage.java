@@ -6,41 +6,46 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+/**
+ * The SendMessage class facilitates sending messages to players.
+ */
 public class SendMessage {
-    public void sendMessageToPlayer(int playerId, String message) {
-        // Oyuncuya mesaj gönderme
-        try {
-            // Oyuncunun bilgilerini player.txt dosyasından oku
-            String playerName = "";
-            String playerSurname = "";
-            try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    int id = Integer.parseInt(parts[0]);
-                    if (id == playerId) {
-                        playerName = parts[1];
-                        playerSurname = parts[2];
-                        break;
-                    }
-                }
-            }
+	/**
+	 * Sends a message to the player with the specified ID.
+	 * 
+	 * @param playerId The ID of the player to whom the message will be sent.
+	 * @param message  The message to be sent.
+	 */
+	public void sendMessageToPlayer(int playerId, String message) {
+		try {
+			String playerName = "";
+			String playerSurname = "";
+			try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
+				String line;
+				while ((line = reader.readLine()) != null) {
+					String[] parts = line.split(",");
+					int id = Integer.parseInt(parts[0]);
+					if (id == playerId) {
+						playerName = parts[1];
+						playerSurname = parts[2];
+						break;
+					}
+				}
+			}
 
-            // Eğer oyuncu bulunamadıysa hata mesajı göster
-            if (playerName.isEmpty()) {
-                return;
-            }
+			if (playerName.isEmpty()) {
+				return;
+			}
 
-            // Mesajı userMessage.txt dosyasına kaydet
-            try (PrintWriter writer = new PrintWriter(new FileWriter("userMessage.txt", true))) {
-                writer.print("Player ID: " + playerId + ", ");
-                writer.print("Player Name: " + playerName + ", ");
-                writer.print("Player Surname: " + playerSurname + ", ");
-                writer.print("Message: " + message + "\n"); // Satır sonu karakteri elle ekleniyor
-            }
+			try (PrintWriter writer = new PrintWriter(new FileWriter("userMessage.txt", true))) {
+				writer.print("Player ID: " + playerId + ", ");
+				writer.print("Player Name: " + playerName + ", ");
+				writer.print("Player Surname: " + playerSurname + ", ");
+				writer.print("Message: " + message + "\n");
+			}
 
-            System.out.println("\nThe message was sent successfully.\n");
-        } catch (IOException | NumberFormatException e) {
-        }
-    }
+			System.out.println("\nThe message was sent successfully.\n");
+		} catch (IOException | NumberFormatException e) {
+		}
+	}
 }

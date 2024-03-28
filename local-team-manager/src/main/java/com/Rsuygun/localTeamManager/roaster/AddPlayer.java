@@ -7,17 +7,33 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+/**
+ * The AddPlayer class facilitates adding new players to the roster.
+ */
 public class AddPlayer {
 	private List<Player> playerList;
 	private int nextPlayerId;
 
+	/**
+	 * Constructs an AddPlayer object with the given player list.
+	 * 
+	 * @param playerList The list of players to which new players will be added.
+	 */
 	public AddPlayer(List<Player> playerList) {
 		this.playerList = playerList;
-		// playerList'deki oyuncuların ID'lerini kontrol ederek
-		// nextPlayerId değerini ayarla
 		determineNextPlayerId();
 	}
 
+	/**
+	 * Adds a new player to the roster with the provided details.
+	 * 
+	 * @param name        The name of the player.
+	 * @param surname     The surname of the player.
+	 * @param birthDate   The birth date of the player.
+	 * @param nationality The nationality of the player.
+	 * @param position    The position of the player.
+	 * @param marketValue The market value of the player.
+	 */
 	public void addPlayer(String name, String surname, String birthDate, String nationality, String position,
 			double marketValue) {
 		Player player = new Player(nextPlayerId, name, surname, birthDate, nationality, position, marketValue);
@@ -25,12 +41,13 @@ public class AddPlayer {
 		nextPlayerId++;
 		System.out.println("\nThe player has been added successfully.\n");
 
-		// Oyuncunun bilgilerini dosyaya kaydetme
 		savePlayerToFile(player);
 	}
 
+	/**
+	 * Determines the next player ID based on the existing players in the roster.
+	 */
 	private void determineNextPlayerId() {
-		// Dosyadan en büyük ID değerini bul
 		try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
 			String line;
 			while ((line = reader.readLine()) != null) {
@@ -42,6 +59,11 @@ public class AddPlayer {
 		}
 	}
 
+	/**
+	 * Saves the details of the added player to a file.
+	 * 
+	 * @param player The player whose details will be saved.
+	 */
 	private void savePlayerToFile(Player player) {
 		String fileName = "player.txt";
 		try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {

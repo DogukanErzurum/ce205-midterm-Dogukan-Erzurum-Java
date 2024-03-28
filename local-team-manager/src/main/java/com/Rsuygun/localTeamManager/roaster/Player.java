@@ -1,6 +1,8 @@
 package com.Rsuygun.localTeamManager.roaster;
 
-
+/**
+ * The Player class represents a player in a team roster.
+ */
 public class Player {
     private int id;
     private String name;
@@ -14,7 +16,19 @@ public class Player {
     private int yellowCards;
     private int redCards;
 
-    public Player(int id, String name, String surname, String birthDate, String nationality, String position, double marketValue) {
+    /**
+     * Constructs a Player object with the specified details.
+     * 
+     * @param id The ID of the player.
+     * @param name The name of the player.
+     * @param surname The surname of the player.
+     * @param birthDate The birth date of the player.
+     * @param nationality The nationality of the player.
+     * @param position The playing position of the player.
+     * @param marketValue The market value of the player.
+     */
+    public Player(int id, String name, String surname, String birthDate, String nationality, String position,
+            double marketValue) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -24,7 +38,7 @@ public class Player {
         this.marketValue = marketValue;
     }
 
-    // Getter ve setter metotları
+    // Getters and setters for player attributes
 
     public int getId() {
         return id;

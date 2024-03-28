@@ -6,17 +6,31 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The ViewRoaster class is responsible for displaying the team roster.
+ */
 public class ViewRoaster {
 	private List<Player> players;
 
+	/**
+	 * Constructs a ViewRoaster object with an empty player list.
+	 */
 	public ViewRoaster() {
 		this.players = new ArrayList<>();
 	}
 
+	/**
+	 * Constructs a ViewRoaster object with the given player list.
+	 * 
+	 * @param players The list of players to be displayed.
+	 */
 	public ViewRoaster(List<Player> players) {
 		this.players = players;
 	}
 
+	/**
+	 * Displays the team roster.
+	 */
 	public void displayRoster() {
 		System.out.println("Team Squad:");
 		System.out.println("ID\tName\tSurname\tDate of birth\tNationality\tPosition\tMarket value");
@@ -27,9 +41,10 @@ public class ViewRoaster {
 		}
 	}
 
-	// Oyuncu bilgilerini dosyadan okuyan metot
+	/**
+	 * Reads player information from a file and populates the player list.
+	 */
 	public void readPlayersFromFile() {
-
 		players.clear();
 
 		try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
@@ -47,7 +62,6 @@ public class ViewRoaster {
 				players.add(player);
 			}
 
-			// Dosyadan okunan oyuncu bilgilerini ekranda göster
 			displayRoster();
 		} catch (IOException e) {
 		}
