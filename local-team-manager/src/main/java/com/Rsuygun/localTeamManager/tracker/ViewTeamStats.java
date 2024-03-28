@@ -4,7 +4,17 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * @brief Class for viewing team statistics.
+ */
 public class ViewTeamStats {
+	
+	/**
+     * @brief Displays statistics for the entire team.
+     * 
+     * This method reads the player.txt file to retrieve statistics for each player
+     * and then calculates the total statistics for the entire team.
+     */
 	public void displayTeamStats() {
 		int totalGoals = 0;
 		int totalAssists = 0;
@@ -25,7 +35,6 @@ public class ViewTeamStats {
 				int yellowCards = Integer.parseInt(parts[9]);
 				int redCards = Integer.parseInt(parts[10]);
 
-				// Oyuncu istatistiklerini ekrana yazdır
 				System.out.println("Player ID: " + id);
 				System.out.println("Name: " + name);
 				System.out.println("Surname: " + surname);
@@ -35,14 +44,12 @@ public class ViewTeamStats {
 				System.out.println("Number of Red Cards: " + redCards);
 				System.out.println();
 
-				// Toplam istatistik değerlerini güncelle
 				totalGoals += goals;
 				totalAssists += assists;
 				totalYellowCards += yellowCards;
 				totalRedCards += redCards;
 			}
 
-			// Toplam istatistik değerlerini ekrana yazdır
 			System.out.println("Total Number of Goals: " + totalGoals);
 			System.out.println("Total Number of Assists: " + totalAssists);
 			System.out.println("Total Number of Yellow Cards: " + totalYellowCards);

@@ -4,9 +4,24 @@ import java.io.*;
 import java.util.List;
 import com.Rsuygun.localTeamManager.roaster.Player;
 
+/**
+ * @brief Class for recording statistics of players.
+ */
 public class RecordStatistics {
+	
+	/**
+     * @brief Adds statistics for a player.
+     * 
+     * This method updates the statistics of a player in the player.txt file.
+     * 
+     * @param playerId The ID of the player.
+     * @param goals The number of goals scored by the player.
+     * @param assists The number of assists made by the player.
+     * @param yellowCards The number of yellow cards received by the player.
+     * @param redCards The number of red cards received by the player.
+     */
 	public void addStatistics(int playerId, int goals, int assists, int yellowCards, int redCards) {
-		// Oyuncunun istatistiklerini player.txt dosyasına ekleme
+
 		try {
 			File inputFile = new File("player.txt");
 			File tempFile = new File("tempPlayer.txt");
@@ -19,11 +34,11 @@ public class RecordStatistics {
 				String[] parts = line.split(",");
 				int id = Integer.parseInt(parts[0]);
 				if (id == playerId) {
-					// Oyuncunun satırını bulduk, istatistikleri ekle
+
 					String updatedLine = line + "," + goals + "," + assists + "," + yellowCards + "," + redCards;
 					writer.write(updatedLine + System.getProperty("line.separator"));
 				} else {
-					// Oyuncunun satırını bulamadık, aynen yazmaya devam et
+
 					writer.write(line + System.getProperty("line.separator"));
 				}
 			}
@@ -31,7 +46,6 @@ public class RecordStatistics {
 			writer.close();
 			reader.close();
 
-			// Geçici dosyayı asıl dosya olarak değiştir
 			if (!inputFile.delete()) {
 				return;
 			}

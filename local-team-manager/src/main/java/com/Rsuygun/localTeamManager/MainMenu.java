@@ -1,3 +1,8 @@
+/**
+ * @file MainMenu.java
+ * @brief This file contains the main menu functionality for the local team manager application.
+ */
+
 package com.Rsuygun.localTeamManager;
 
 import java.text.ParseException;
@@ -25,12 +30,24 @@ import com.Rsuygun.localTeamManager.tracker.RecordStatistics;
 import com.Rsuygun.localTeamManager.tracker.ViewPlayerStats;
 import com.Rsuygun.localTeamManager.tracker.ViewTeamStats;
 
+/**
+ * @brief The main menu class for the local team manager application.
+ */
 public class MainMenu {
-
+	
+	/**
+     * @brief The main method of the application.
+     * 
+     * This method handles the main menu functionality of the local team manager application,
+     * including user registration, login, admin login, player transactions, match transactions,
+     * statistical transactions, and messaging.
+     * 
+     * @param args The command-line arguments.
+     */
 	private static RemoveGame removeGameManager = new RemoveGame();
 
 	private static List<Player> playerList = new ArrayList<>();
-	private static AddGame addGameManager = new AddGame(); // Maç ekleme işlemleri için AddGame nesnesi
+	private static AddGame addGameManager = new AddGame();
 
 	public static void main(String[] args) {
 		Register registerManager = new Register();
@@ -44,7 +61,10 @@ public class MainMenu {
 
 		while (true) {
 			if (!isAdminLoggedIn && !isLoggedIn) {
-				// Ana menü
+				
+				// Main menu for unauthenticated users
+                // Options: Register, Login, Admin Login, Exit
+                // Handle user input accordingly
 				System.out.println("************************");
 				System.out.println("1. Register");
 				System.out.println("2. Login");
@@ -53,11 +73,11 @@ public class MainMenu {
 				System.out.println("************************");
 				System.out.print("Your choice: ");
 				int choice = scanner.nextInt();
-				scanner.nextLine(); // Buffer temizleme
+				scanner.nextLine();
 
 				switch (choice) {
 				case 1:
-					// Kayıt
+				
 					System.out.println("\n------------------------");
 					System.out.println("Register");
 					System.out.println("------------------------");
@@ -69,7 +89,7 @@ public class MainMenu {
 					registerManager.registerUser(username, password);
 					break;
 				case 2:
-					// Giriş
+					
 					System.out.println("\n------------------------");
 					System.out.println("Login");
 					System.out.println("------------------------");
@@ -81,7 +101,7 @@ public class MainMenu {
 					isLoggedIn = loginManager.loginUser(loginUsername, loginPassword);
 					break;
 				case 3:
-					// Admin girişi
+					
 					System.out.println("\n------------------------");
 					System.out.println("Admin Login");
 					System.out.println("------------------------");
@@ -93,7 +113,7 @@ public class MainMenu {
 					isAdminLoggedIn = adminManager.loginAdmin(adminUsernameInput, adminPasswordInput);
 					break;
 				case 4:
-					// Çıkış
+					
 					System.out.println("Exiting the program...");
 					scanner.close();
 					System.exit(0);
@@ -102,7 +122,11 @@ public class MainMenu {
 					break;
 				}
 			} else if (isAdminLoggedIn) {
-				// Admin menüsü
+				
+				// Admin menu
+                // Options: Player Transactions, Match Transactions, Statistical Transactions,
+                // Show Messages, Exit
+                // Handle admin input accordingly
 				System.out.println("\n------------------------");
 				System.out.println("Admin menu:");
 				System.out.println("************************");
@@ -114,11 +138,11 @@ public class MainMenu {
 				System.out.println("************************");
 				System.out.print("Your choice: ");
 				int adminChoice = scanner.nextInt();
-				scanner.nextLine(); // Buffer temizleme
+				scanner.nextLine(); 
 
 				switch (adminChoice) {
 				case 1:
-					// Oyuncu işlemleri alt menüsü
+					
 					System.out.println("\n------------------------");
 					System.out.println("\nPlayer Transactions:");
 					System.out.println("************************");
@@ -130,11 +154,11 @@ public class MainMenu {
 					System.out.println("************************");
 					System.out.print("Your choice: ");
 					int playerActionChoice = scanner.nextInt();
-					scanner.nextLine(); // Buffer temizleme
+					scanner.nextLine();
 
 					switch (playerActionChoice) {
 					case 1:
-						// Oyuncu ekleme
+						
 						System.out.println("Enter the required information to add a player:");
 						System.out.print("Name: ");
 						String name = scanner.nextLine();
@@ -148,18 +172,18 @@ public class MainMenu {
 						String position = scanner.nextLine();
 						System.out.print("Market value: ");
 						double marketValue = scanner.nextDouble();
-						scanner.nextLine(); // Buffer temizleme
+						scanner.nextLine();
 
 						AddPlayer addPlayer = new AddPlayer(playerList);
 						addPlayer.addPlayer(name, surname, birthDate, nationality, position, marketValue);
 						break;
 					case 2:
-						// Oyuncu düzenleme
+						
 						System.out.println("Enter the ID of the player you want to edit: ");
 						int editPlayerId = scanner.nextInt();
-						scanner.nextLine(); // Buffer temizleme
+						scanner.nextLine();
 
-						// Düzenlenecek oyuncuyu bulma
+						
 						System.out.println("Enter the player's new information: ");
 						System.out.print("Name: ");
 						String newPlayerName = scanner.nextLine();
@@ -173,24 +197,24 @@ public class MainMenu {
 						String newPlayerPosition = scanner.nextLine();
 						System.out.print("Market value: ");
 						double newPlayerMarketValue = scanner.nextDouble();
-						scanner.nextLine(); // Buffer temiz
-						// Oyuncuyu düzenleme
+						scanner.nextLine(); 
+						
 						EditPlayer editPlayer = new EditPlayer(playerList);
 						editPlayer.editPlayer(editPlayerId, newPlayerName, newPlayerSurname, newPlayerBirthDate,
 								newPlayerNationality, newPlayerPosition, newPlayerMarketValue);
 						break;
 					case 3:
-						// Oyuncu silme
+					
 						System.out.println("Enter the ID of the player you want to delete:");
 						int deletePlayerId = scanner.nextInt();
-						scanner.nextLine(); // Buffer temizleme
+						scanner.nextLine();
 
-						// Oyuncuyu silme
+						
 						RemovePlayer removePlayer = new RemovePlayer(playerList);
 						removePlayer.removePlayer(deletePlayerId);
 						break;
 					case 4:
-						// Kadroyu görüntüleme
+						
 						System.out.println("Squad:");
 						ViewRoaster viewRoster = new ViewRoaster(playerList);
 						viewRoster.readPlayersFromFile();
@@ -204,7 +228,7 @@ public class MainMenu {
 					}
 					break;
 				case 2:
-					// Maç işlemleri alt menüsü
+					
 					System.out.println("\n------------------------");
 					System.out.println("\nMatch Transactions:");
 					System.out.println("************************");
@@ -216,11 +240,11 @@ public class MainMenu {
 					System.out.println("************************");
 					System.out.print("Your choice: ");
 					int gameActionChoice = scanner.nextInt();
-					scanner.nextLine(); // Buffer temizleme
+					scanner.nextLine(); 
 
 					switch (gameActionChoice) {
 					case 1:
-						// Maç ekleme
+						
 						System.out.println("Enter the required information to add a match:");
 						System.out.print("Date (yyyy-MM-dd): ");
 						String dateStr = scanner.nextLine();
@@ -228,7 +252,7 @@ public class MainMenu {
 						String time = scanner.nextLine();
 						System.out.print("Location: ");
 						String location = scanner.nextLine();
-						// Tarih ve saat
+						
 						try {
 							SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 							Date date = dateFormat.parse(dateStr);
@@ -239,25 +263,25 @@ public class MainMenu {
 						}
 						break;
 					case 2:
-						// Maçları görüntüleme
+					
 						System.out.println("View Matches");
 						ViewSchedule viewSchedule = new ViewSchedule();
 						viewSchedule.loadGamesFromFile("game.txt");
 						viewSchedule.displaySchedule();
 						break;
 					case 3:
-						// Maç silme
+						
 						System.out.println("To delete a match, enter the match ID:");
 						int gameIdToDelete = scanner.nextInt();
-						scanner.nextLine(); // Buffer temizleme
+						scanner.nextLine();
 						removeGameManager.removeGame(gameIdToDelete);
 						System.out.println("The match was successfully deleted.");
 						break;
 					case 4:
-						// Maç düzenleme
+						
 						System.out.println("To edit a match, enter the match ID:");
 						int gameIdToEdit = scanner.nextInt();
-						scanner.nextLine(); // Buffer temizleme
+						scanner.nextLine();
 
 						System.out.println("Enter new date (in yyyy-MM-dd format):");
 						String newDateStr = scanner.nextLine();
@@ -280,7 +304,7 @@ public class MainMenu {
 					}
 					break;
 				case 3:
-					// İstatistik işlemleri
+					
 					System.out.println("\n------------------------");
 					System.out.println("\nStatistical Transactions:");
 					System.out.println("************************");
@@ -291,11 +315,11 @@ public class MainMenu {
 					System.out.println("************************");
 					System.out.print("Your choice: ");
 					int statActionChoice = scanner.nextInt();
-					scanner.nextLine(); // Buffer temizleme
+					scanner.nextLine(); 
 
 					switch (statActionChoice) {
 					case 1:
-						// İstatistik ekleme
+						
 						System.out.print("Player ID: ");
 						int playerId = scanner.nextInt();
 						System.out.print("Number of Goals: ");
@@ -310,14 +334,14 @@ public class MainMenu {
 						recordStatistics.addStatistics(playerId, goals, assists, yellowCards, redCards);
 						break;
 					case 2:
-						// Oyuncu istatistik görüntüleme
+						
 						System.out.print("Player ID: ");
 						int playerStatisticId = scanner.nextInt();
 						ViewPlayerStats viewPlayerStats = new ViewPlayerStats();
 						viewPlayerStats.displayPlayerStats(playerStatisticId);
 						break;
 					case 3:
-						// Takım istatistik görüntüleme
+						
 						ViewTeamStats viewTeamStats = new ViewTeamStats();
 						viewTeamStats.displayTeamStats();
 						break;
@@ -330,12 +354,12 @@ public class MainMenu {
 					}
 					break;
 				case 4:
-					// Mesajları göster
+					
 					ViewMessage viewMessage = new ViewMessage();
 					viewMessage.displayAllMessages();
 					break;
 				case 6:
-					// Çıkış
+					
 					System.out.println("Exiting the program...");
 					scanner.close();
 					System.exit(0);
@@ -344,7 +368,10 @@ public class MainMenu {
 					break;
 				}
 			} else if (isLoggedIn) {
-				// Kullanıcı menüsü
+				
+				// User menu
+                // Options: View Squad, View Matches, Send Message, Exit
+                // Handle user input accordingly
 				System.out.println("\n------------------------");
 				System.out.println("\nUser menu:");
 				System.out.println("************************");
@@ -355,34 +382,34 @@ public class MainMenu {
 				System.out.println("************************");
 				System.out.print("Your choice: ");
 				int userChoice = scanner.nextInt();
-				scanner.nextLine(); // Buffer temizleme
+				scanner.nextLine(); 
 
 				switch (userChoice) {
 				case 1:
-					// Kadroyu görüntüleme işlemi
+					
 					System.out.println("Squad:");
 					ViewRoaster viewRoster = new ViewRoaster(playerList);
 					viewRoster.readPlayersFromFile();
 					break;
 				case 2:
-					// Maçları Görüntüle seçeneği
+					
 					System.out.println("View Matches");
 					ViewSchedule viewSchedule = new ViewSchedule();
 					viewSchedule.loadGamesFromFile("game.txt");
 					viewSchedule.displaySchedule();
 					break;
 				case 3:
-					// Mesaj gönderme işlemi
+					
 					SendMessage sendMessage = new SendMessage();
 					System.out.println("Enter the player ID you want to send a message to:");
 					int playerIdToSendMessage = scanner.nextInt();
-					scanner.nextLine(); // Buffer temizleme
+					scanner.nextLine();
 					System.out.println("Enter the message you want to send:");
 					String messageToSend = scanner.nextLine();
 					sendMessage.sendMessageToPlayer(playerIdToSendMessage, messageToSend);
 					break;
 				case 4:
-					// Çıkış
+					
 					System.out.println("Exiting the program...");
 					scanner.close();
 					System.exit(0);

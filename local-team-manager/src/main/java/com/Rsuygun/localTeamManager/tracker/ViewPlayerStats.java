@@ -4,7 +4,19 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * @brief Class for viewing player statistics.
+ */
 public class ViewPlayerStats {
+	
+	/**
+     * @brief Displays statistics for a specific player.
+     * 
+     * This method reads the player.txt file to retrieve statistics for the specified player ID
+     * and then displays them to the console.
+     * 
+     * @param playerId The ID of the player whose statistics are to be displayed.
+     */
 	public void displayPlayerStats(int playerId) {
 		try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
 			String line;
@@ -13,7 +25,7 @@ public class ViewPlayerStats {
 				String[] parts = line.split(",");
 				int id = Integer.parseInt(parts[0]);
 				if (id == playerId) {
-					// Oyuncu bulundu, istatistikleri ekrana yazdır
+				
 					playerFound = true;
 					String name = parts[1];
 					String surname = parts[2];
