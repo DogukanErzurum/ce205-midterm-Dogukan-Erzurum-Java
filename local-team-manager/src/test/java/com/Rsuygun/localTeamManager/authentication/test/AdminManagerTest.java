@@ -17,19 +17,16 @@ public class AdminManagerTest {
 
     @Test
     public void testLoginAdmin_Successful() {
-        // Admin kullanıcı adı ve parolası doğruysa başarılı bir giriş olmalıdır
         assertTrue(adminManager.loginAdmin("admin", "admin"));
     }
 
     @Test
     public void testLoginAdmin_IncorrectUsername() {
-        // Admin kullanıcı adı yanlışsa giriş başarısız olmalıdır
         assertFalse(adminManager.loginAdmin("wrongusername", "admin123"));
     }
 
     @Test
     public void testLoginAdmin_IncorrectPassword() {
-        // Admin parolası yanlışsa giriş başarısız olmalıdır
         assertFalse(adminManager.loginAdmin("admin", "wrongpassword"));
     }
 }

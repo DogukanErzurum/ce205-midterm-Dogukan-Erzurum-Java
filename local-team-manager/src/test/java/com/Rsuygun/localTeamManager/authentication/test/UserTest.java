@@ -10,7 +10,6 @@ public class UserTest {
 
     @Test
     public void testUserConstructorAndGetters() {
-        // Kullanıcı oluştur ve bilgilerini kontrol et
         String username = "testuser";
         String password = "testpassword";
         User user = new User(username, password);

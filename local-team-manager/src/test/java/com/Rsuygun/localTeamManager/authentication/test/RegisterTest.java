@@ -28,7 +28,6 @@ public class RegisterTest {
         
         assertTrue(result);
         
-        // Dosyayı kontrol et
         try (BufferedReader reader = new BufferedReader(new FileReader(Register.USER_FILE))) {
             String line = reader.readLine();
             assertNotNull(line);

@@ -21,16 +21,13 @@ public class SendMessageTest {
 
     @Test
     public void testSendMessageToPlayer() {
-        int playerId = 1; // Test için bir oyuncu ID'si seçelim
+        int playerId = 1; 
         String message = "Test message";
 
-        // SendMessage nesnesini oluşturalım
         SendMessage sender = new SendMessage();
 
-        // Mesajı oyuncuya gönderelim
         sender.sendMessageToPlayer(playerId, message);
 
-        // Mesajın doğru biçimde kaydedilip kaydedilmediğini kontrol edelim
         try (BufferedReader reader = new BufferedReader(new FileReader(TEST_MESSAGE_FILE))) {
             String line = reader.readLine();
             assertTrue(line.contains("Player ID: " + playerId));

@@ -48,11 +48,7 @@ public class ViewRoasterTest {
 
         viewRoaster.readPlayersFromFile();
 
-        // Beklenen çıktıyı dosya formatına göre ayarlamak gerekir
-        // Test dosyasındaki örnek format:
-        // 1,John,Doe,1990-05-15,USA,Forward,1000000.0
-        // 2,Alice,Smith,1995-10-20,England,Midfielder,800000.0
-        // 3,Bob,Johnson,1988-03-08,Canada,Defender,1200000.0
+
         String expectedOutput = "Team Squad:\n" +
                 "ID\tName\tSurname\tDate of birth\tNationality\tPosition\tMarket value\n" +
                 "1\tJohn\tDoe\t1990-05-15\tUSA\tForward\t1000000.0\n" +

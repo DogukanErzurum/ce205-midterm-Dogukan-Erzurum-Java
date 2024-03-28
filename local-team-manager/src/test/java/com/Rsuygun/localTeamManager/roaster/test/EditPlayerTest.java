@@ -23,7 +23,6 @@ public class EditPlayerTest {
 
     private static final String TEST_FILE_NAME = "player.txt";
 
-    // Player'ın düzenlenip düzenlenmediğini kontrol eden test
     @Test
     void testEditPlayer() {
         List<Player> players = new ArrayList<>();
@@ -33,13 +32,10 @@ public class EditPlayerTest {
 
         EditPlayer editPlayer = new EditPlayer(players);
 
-        // Oyuncunun bilgilerini düzenle
         editPlayer.editPlayer(1, "Michael", "Jordan", "1963-02-17", "USA", "Guard", 5000000.0);
 
-        // Dosyadan oyuncu bilgilerini oku
         List<Player> updatedPlayers = readPlayersFromFile(TEST_FILE_NAME);
 
-        // Değişikliklerin doğru yapıldığını kontrol et
         assertEquals("Michael", updatedPlayers.get(0).getName());
         assertEquals("Jordan", updatedPlayers.get(0).getSurname());
         assertEquals("1963-02-17", updatedPlayers.get(0).getBirthDate());
@@ -48,7 +44,6 @@ public class EditPlayerTest {
         assertEquals(5000000.0, updatedPlayers.get(0).getMarketValue());
     }
 
-    // Dosyadan oyuncu bilgilerini okuyan yardımcı metot
     private List<Player> readPlayersFromFile(String fileName) {
         List<Player> players = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {

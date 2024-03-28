@@ -15,13 +15,11 @@ public class ViewMessageTest {
 
 	@Test
     public void testDisplayAllMessages() {
-        // ViewMessage nesnesini oluşturalım
+
         ViewMessage viewer = new ViewMessage();
 
-        // Tüm mesajları ekrana yazdıralım
         viewer.displayAllMessages();
 
-        // Ekrana yazdırılan mesajların doğru olduğunu kontrol edelim
         try (BufferedReader reader = new BufferedReader(new FileReader(TEST_MESSAGE_FILE))) {
             String line = reader.readLine();
             assertTrue(line.contains("Player ID: 1"));

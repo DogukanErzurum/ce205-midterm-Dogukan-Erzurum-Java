@@ -27,16 +27,13 @@ public class AddPlayerTest {
 
     @Test
     public void testAddPlayer() {
-        // Önceki oyuncu sayısı
+
         int previousSize = playerList.size();
 
-        // Yeni oyuncu ekle
         addPlayer.addPlayer("John", "Doe", "1990-05-15", "USA", "Forward", 1000000.0);
 
-        // Yeni oyuncu eklenmiş mi kontrol et
         assertEquals(previousSize + 1, playerList.size());
 
-        // Dosyadan son eklenen oyuncuyu oku ve doğrula
         try (BufferedReader reader = new BufferedReader(new FileReader("player.txt"))) {
             String line;
             int lastPlayerId = -1;
@@ -44,7 +41,6 @@ public class AddPlayerTest {
                 String[] parts = line.split(",");
                 lastPlayerId = Integer.parseInt(parts[0]);
             }
-            // Son oyuncu ID'si doğru mu kontrol et
             assertNotEquals(previousSize, lastPlayerId);
         } catch (IOException | NumberFormatException e) {
         }
