@@ -1,8 +1,8 @@
 1,2024-03-27,15:00,Location 1,Opponent 1
 2,2024-03-28,18:00,Location 2,Opponent 2
-3,2024-04-03,19:00,Location 3,Opponent 31,2024-03-28,18:21,Stadium,Team D
-1,2024-03-28,18:21,Stadium,Team D
-2,2024-03-28,19:21,Stadium,Team B
-1,2024-03-28,18:21,Stadium,Team D
-2,2024-03-28,19:21,Stadium,Team B
-3,2024-03-28,20:21,Stadium,Team E
+3,2024-04-03,19:00,Location 3,Opponent 31,2024-03-29,03:20,Stadium,Team E
+1,2024-03-29,03:20,Stadium,Team E
+2,2024-03-29,04:20,Stadium,Team A
+1,2024-03-29,03:20,Stadium,Team E
+2,2024-03-29,04:20,Stadium,Team A
+3,2024-03-29,05:20,Stadium,Team B

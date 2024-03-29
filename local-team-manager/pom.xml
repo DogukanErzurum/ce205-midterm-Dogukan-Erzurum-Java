@@ -5,30 +5,30 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<!-- The Basics -->
-	<groupId>com.ucoruh.calculator</groupId>
-	<artifactId>calculator-app</artifactId>
+	<groupId>com.Rsuygun.localTeamManager</groupId>
+	<artifactId>local-team-manager</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<!-- More Project Information -->
-	<name>calculator-app</name>
-	<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+	<name>local-team-manager</name>
+	<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 	<scm>
-		<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+		<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 	</scm>
 	<inceptionYear>2023</inceptionYear>
 	<developers>
 		<developer>
-			<name>Asst. Prof. Dr. Ugur CORUH</name>
+			<name>Dogukan Erzurum</name>
 			<organization>RTEU</organization>
-			<email>ugur.coruh@erdogan.edu.tr</email>
+			<email>dogukan_erzurum20@erdogan.edu.tr</email>
 			<roles>
 				<role>Developer</role>
 				<role>Designer</role>
 			</roles>
 		</developer>
 		<developer>
-			<name>Other Person</name>
+			<name>Ramazan Serhat Uygun</name>
 			<organization>RTEU</organization>
 			<email>mail@gmail.com</email>
 			<roles>
@@ -38,8 +38,8 @@
 	</developers>
 	<contributors>
 		<contributor>
-			<name>Asst. Prof. Dr. Ugur CORUH</name>
-			<email>ugur.coruh@erdogan.edu.tr</email>
+			<name>Dogukan Erzurum</name>
+			<email>dogukan_erzurum20@erdogan.edu.tr</email>
 			<organization>RTEU</organization>
 			<roles>
 				<role>Developer</role>
@@ -47,7 +47,7 @@
 			</roles>
 		</contributor>
 		<contributor>
-			<name>Other Person</name>
+			<name>Ramazan Serhat Uygun</name>
 			<organization>RTEU</organization>
 			<email>mail@gmail.com</email>
 			<roles>
@@ -63,7 +63,7 @@
 	<!-- Environment Settings -->
 	<issueManagement>
 		<system>Github</system>
-		<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+		<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 	</issueManagement>
 	<ciManagement>
 		<system>Github</system>
@@ -76,25 +76,25 @@
 				<sendOnWarning>true</sendOnWarning>
 			</notifier>
 		</notifiers>
-		<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+		<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 	</ciManagement>
 	<repositories>
 		<repository>
-			<id>eclipse-java-maven-template</id>
-			<name>eclipse-java-maven-template</name>
-			<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+			<id>ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java</id>
+			<name>ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java</name>
+			<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 		</repository>
 	</repositories>
 	<distributionManagement>
 		<site>
-			<name>https://github.com/ucoruh/eclipse-java-maven-template</name>
-			<id>eclipse-java-maven-template</id>
+			<name>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</name>
+			<id>ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java</id>
 		</site>
-		<downloadUrl>https://github.com/ucoruh/eclipse-java-maven-template</downloadUrl>
+		<downloadUrl>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</downloadUrl>
 		<repository>
-			<id>eclipse-java-maven-template</id>
-			<name>eclipse-java-maven-template</name>
-			<url>https://github.com/ucoruh/eclipse-java-maven-template</url>
+			<id>ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java</id>
+			<name>ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java</name>
+			<url>https://github.com/DogukanErzurum/ce205-midterm-Dogukan-Erzurum-Ramazan-Serhat-Uygun-Java.git</url>
 		</repository>
 	</distributionManagement>
 	<properties>
@@ -145,8 +145,26 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<configuration>
 					<includes>
-						<include>**/CalculatorAppTest.java</include>
-						<include>**/CalculatorTest.java</include>
+						<include>**/MainMenuTest.java</include>
+						<include>**/RecordStatisticsTest</include>
+						<include>**/ViewPlayerStatsTest.java</include>
+						<include>**/ViewTeamStatsTest.java</include>
+						<include>**/AddGameTest.java</include>
+						<include>**/EditGameTest.java</include>
+						<include>**/GameTest.java</include>
+						<include>**/RemoveGameTest.java</include>
+						<include>**/ViewScheduleTest.java</include>
+						<include>**/AddPlayerTest.java</include>
+						<include>**/EditPlayerTest.java</include>
+						<include>**/PlayerTest.java</include>
+						<include>**/RemovePlayerTest.java</include>
+						<include>**/ViewRoasterTest.java</include>
+						<include>**/SendMessageTest.java</include>
+						<include>**/ViewMessageTest.java</include>
+						<include>**/AdminManagerTest.java</include>
+						<include>**/LoginTest.java</include>
+						<include>**/RegisterTest.java</include>
+						<include>**/UserTest.java</include>
 					</includes>
 				</configuration>
 			</plugin>
@@ -250,7 +268,7 @@
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>
-										com.ucoruh.calculator.CalculatorApp</mainClass>
+										com.Rsuygun.localTeamManager</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
